@@ -159,7 +159,7 @@ Widget buildTextField(String label, String prefix, TextEditingController c, Func
                         fontSize: 25.0,
                       ),
                       onChanged: f,
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.numberWithOptions(decimal: true),
                     );
 }
 
