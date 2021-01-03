@@ -36,6 +36,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  void _clearAll(){
+    realController.text = "";
+    dolarController.text = "";
+    euroController.text = "";
+  }
+  
+
   final realController = TextEditingController();
   final dolarController = TextEditingController();
   final euroController = TextEditingController();
@@ -44,17 +51,31 @@ class _HomeState extends State<Home> {
   double euro;
   
 
-  void _realChanged(String text){
+void _realChanged(String text){
+    if(text.isEmpty) {
+      _clearAll();
+      return;
+    }
     double real = double.parse(text);
     dolarController.text = (real/dolar).toStringAsFixed(2);
     euroController.text = (real/euro).toStringAsFixed(2);
   }
+ 
   void _dolarChanged(String text){
+    if(text.isEmpty) {
+      _clearAll();
+      return;
+    }
     double dolar = double.parse(text);
-    realController.text = (dolar*this.dolar).toStringAsFixed(2);
-    euroController.text = (dolar*this.dolar / euro ).toStringAsFixed(2);
+    realController.text = (dolar * this.dolar).toStringAsFixed(2);
+    euroController.text = (dolar * this.dolar / euro).toStringAsFixed(2);
   }
+ 
   void _euroChanged(String text){
+    if(text.isEmpty) {
+      _clearAll();
+      return;
+    }
     double euro = double.parse(text);
     realController.text = (euro * this.euro).toStringAsFixed(2);
     dolarController.text = (euro * this.euro / dolar).toStringAsFixed(2);
@@ -141,3 +162,5 @@ Widget buildTextField(String label, String prefix, TextEditingController c, Func
                       keyboardType: TextInputType.number,
                     );
 }
+
+
