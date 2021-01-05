@@ -128,7 +128,7 @@ void _realChanged(String text){
 
                     buildTextField('Reais', 'R\$', realController, _realChanged),
                     Divider(),
-                    buildTextField('Dólares', 'US\$', dolarController, _dolarChanged),
+                    buildTextField('Dólares', 'USD', dolarController, _dolarChanged),
                     Divider(),
                     buildTextField('Euros', '€', euroController, _euroChanged),                  
                                         
